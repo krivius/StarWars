@@ -1,5 +1,9 @@
+body{
+  background-color: #282c34;
+}
 .App {
-  text-align: center;
+  text-align: left;
+  height: 100%;
 }
 
 .App-logo {
@@ -35,4 +39,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+.movies{
+  height: 100%;
+  width: auto;
+  border-right: 1px dashed #61dafb;
+  display: inline-block;
+  float: left;
+  margin-right: 25px;
+  padding-right: 25px;
+}
+.movies ul{
+  padding: 10px;
+}
+.movies li{
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+  color: #61dafb;
+  cursor: pointer;
+}
+
+.movies li:hover{
+  color: #fff;
+}
+.description{
+  color: #61dafb;
+}
+.description .h3{
+  color: #ffffff;
 }
