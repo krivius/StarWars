@@ -46,8 +46,6 @@ class Main extends React.Component {
 
     render() {
 
-
-
         const movieList = this.state.movies.map(item=> <Movies key={item.episode_id} handleClick={this.handleClick} item={item}/> )
         const curr_ep = this.state.curr_ep;
         const descr = this.state.movies.map(function(item){
