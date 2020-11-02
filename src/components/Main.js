@@ -9,7 +9,8 @@ class Main extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            movies: []
+            movies: [],
+            curr_ep: 0
         }
         this.handleClick = this.handleClick.bind(this)
     }
@@ -21,7 +22,8 @@ class Main extends React.Component {
                 (result) => {
                     this.setState({
                         isLoaded: true,
-                        movies: result.results
+                        movies: result.results,
+                        curr_ep: result.results[0].episode_id
                     });
                 },
 
@@ -32,38 +34,29 @@ class Main extends React.Component {
                     });
                 }
             )
+
     }
 
-    handleClick(event){
-        console.log(event)
+    handleClick(id){
+        this.setState(() =>{
+                 return {curr_ep: id}
+            }
+        )
     }
 
     render() {
 
 
 
-        const movieList = this.state.movies.map(function(item, i){
-            if(i === 0){
+        const movieList = this.state.movies.map(item=> <Movies key={item.episode_id} handleClick={this.handleClick} item={item}/> )
+        const curr_ep = this.state.curr_ep;
+        const descr = this.state.movies.map(function(item){
+            if(item.episode_id === curr_ep){
                 return(
-                    <Movies key={item.episode_id}
-                            handleClick={this.handleClick}
-                            item={item}
-                            active={true}/>
+                    <Description key={item.episode_id} item={item}/>
                 )
             }else{
-                return(
-                    <Movies key={item.episode_id}
-                            handleClick={this.handleClick}
-                            item={item}/>
-                )
-            }
-        })
-
-        const descr = this.state.movies.map(function(item, i){
-            if(i === 0){
-                return(
-                    <Description key={item.episode_id} descr={item.opening_crawl} title={item.title}/>
-                )
+                return null;
             }
         })
 

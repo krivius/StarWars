@@ -48,6 +48,7 @@ body{
   float: left;
   margin-right: 25px;
   padding-right: 25px;
+  position: absolute;
 }
 .movies ul{
   padding: 10px;
@@ -65,6 +66,9 @@ body{
 }
 .description{
   color: #61dafb;
+  position: absolute;
+  left: 250px;
+  padding-right: 50px;
 }
 .description .h3{
   color: #ffffff;
