@@ -2,6 +2,7 @@ import React from 'react';
 import Movies from './Movies';
 import Description from './Description.js';
 
+
 class Main extends React.Component {
 
     constructor() {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-import MyPortal from "./Portal";
-import Modal from './Modal'
+
+import TransitionsModal from "./MyTestModal";
+
+
 
 
 class Description extends React.Component {
@@ -10,6 +11,7 @@ class Description extends React.Component {
         this.state={}
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+
     }
 
     handleChange(event) {
@@ -19,10 +21,8 @@ class Description extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        console.log(this.state)
-        return(
-            <Modal isOpen={true}/>
-        )
+        console.log(this.state);
+
     }
 
 
@@ -42,10 +42,12 @@ class Description extends React.Component {
                         <input type="text" name="username" placeholder="Your name" onChange={this.handleChange}/><br/>
                         <input type="email" name="email" placeholder="Your e-mail" onChange={this.handleChange}/><br/>
                         <textarea rows="4" cols="75" type="text" name="review" placeholder="Your review" onChange={this.handleChange}/><br/>
-                        <button>Submit</button>
+                        <TransitionsModal userData={this.state} />
                     </fieldset>
                 </form>
+
             </div>
+
         )
     }
 }
